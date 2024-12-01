@@ -1,9 +1,9 @@
-# WebXR Polyfill for HoloKit WebXR Viewer
+# WebXR Polyfill for HoloWeb (WebXR Viewer)
 
 This repo contains polyfill code that implements the WebXR Device API for use *only* in HoloKit WebXR Viewer.
 
 It implements two modes under `immersive-ar` sessions:
-- Handheld AR (Monocular AR) 
+- Handheld AR (Monocular AR) using Phone Screen
 - Headworn AR (Stereoscopic AR) using HoloKit
 
 ## Implementation
@@ -28,6 +28,8 @@ This implementation of WebXR supports a number of features:
 - [ ] WebXR Layers API Level 1 
   - feature descriptor: `"layers"`
   - https://immersive-web.github.io/layers/
+- [ ] WebXR WebGPU Binding
+  - https://github.com/immersive-web/WebXR-WebGPU-Binding
 - [x] WebXR Anchors Module 
   - feature descriptor: `"anchors"`
   - https://immersive-web.github.io/anchors/
@@ -40,6 +42,8 @@ This implementation of WebXR supports a number of features:
 - [x] WebXR Mesh Detection Module
   - feature descriptor: `"mesh-detection"`
   - https://immersive-web.github.io/real-world-meshing/
+- [ ] Semantic labels for WebXR
+  - https://github.com/immersive-web/semantic-labels
 - [x] WebXR Plane Detection Module
   - feature descriptor: `"plane-detection"`
   - https://immersive-web.github.io/real-world-geometry/plane-detection.html
@@ -49,10 +53,15 @@ This implementation of WebXR supports a number of features:
 - [x] WebXR Depth Sensing Module
   - feature descriptor: `"depth-sensing"`
   - https://immersive-web.github.io/depth-sensing/
-
-## HoloKitDevice
-  - 
-  - 
+- [] WebXR Body Tracking Module
+  - feature descriptor: `"body-tracking"`
+  - https://github.com/immersive-web/body-tracking
+- [ ] WebXR Marker Tracking Module
+  - https://immersive-web.github.io/marker-tracking/
+- [ ] WebXR Front Facing Camera
+  - https://github.com/immersive-web/front-facing-camera
+- [ ] WebXR Computer vision for XR
+  - https://github.com/immersive-web/computer-vision
 
 ## Reference
 
@@ -66,3 +75,5 @@ This implementation of WebXR supports a number of features:
   - https://github.com/meta-quest/immersive-web-emulator
 - Typescript implementation of Looking Glass WebXR polyfill
   - https://github.com/Looking-Glass/looking-glass-webxr
+- Javascript Implementation for WebXR Polyfill for Mozilla XRViewer
+  - https://github.com/mozilla-mobile/webxr-polyfill-for-ios-viewer

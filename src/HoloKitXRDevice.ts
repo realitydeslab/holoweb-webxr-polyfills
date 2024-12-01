@@ -4,7 +4,7 @@ import XRHand from "./api/XRHand";
 
 import { mat4, quat, vec3 } from 'gl-matrix';
 
-import XRDevice from 'webxr-polyfill/src/devices/XRDevice';
+import XRDevice from "./api/XRDevice";
 import type { XRSessionMode } from 'webxr';
 
 export default class HoloKitXRDevice extends XRDevice {

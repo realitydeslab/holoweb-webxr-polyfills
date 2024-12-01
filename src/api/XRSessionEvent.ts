@@ -1,5 +1,5 @@
-// SPDX-FileCopyrightText: Copyright 2023 Holo Interactive <dev@holoi.com>
-// SPDX-FileContributor: Botao Amber Hu <botao@holoi.com>
+// SPDX-FileCopyrightText: Copyright 2024 Reality Design Lab <dev@reality.design>
+// SPDX-FileContributor: Botao 'Amber' Hu <amber@reality.design>
 // SPDX-License-Identifier: MIT
 
 import XRSession from "./XRSession";
@@ -11,11 +11,13 @@ export interface XRSessionEventInit extends EventInit {
   session: XRSession;
 }
 
-export enum XRSessionEventType {
-  'end' = 'end',
-  'visibilitychange' = 'visibilitychange',
-  'frameratechange' = 'frameratechange'
-}
+// export enum XRSessionEventType {
+//   'end' = 'end',
+//   'visibilitychange' = 'visibilitychange',
+//   'frameratechange' = 'frameratechange'
+// }
+
+export type XRSessionEventType = "end" | "visibilitychange" | "frameratechange";
 
 export default class XRSessionEvent extends Event {
   #session: XRSession;
@@ -32,4 +34,8 @@ export default class XRSessionEvent extends Event {
   get session() { 
     return this.#session; 
   }
+}
+
+export interface XRSessionEventHandler {
+  (evt: XRSessionEvent): any;
 }

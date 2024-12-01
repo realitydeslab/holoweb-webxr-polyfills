@@ -1,5 +1,5 @@
-// SPDX-FileCopyrightText: Copyright 2023 Holo Interactive <dev@holoi.com>
-// SPDX-FileContributor: Botao Amber Hu <botao@holoi.com>
+// SPDX-FileCopyrightText: Copyright 2024 Reality Design Lab <dev@reality.design>
+// SPDX-FileContributor: Botao 'Amber' Hu <amber@reality.design>
 // SPDX-License-Identifier: MIT
 
 import XRReferenceSpace from './XRReferenceSpace';
@@ -35,6 +35,8 @@ export default abstract class XRDevice extends EventTarget {
   }
 
   /**
+   * An XR device has a list of supported modes (a list of strings) that contains the enumeration values 
+   * of XRSessionMode that the XR device supports.
    * @param {XRSessionMode} mode
    * @return {boolean}
    */

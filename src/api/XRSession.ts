@@ -1,12 +1,12 @@
-// SPDX-FileCopyrightText: Copyright 2023 Holo Interactive <dev@holoi.com>
-// SPDX-FileContributor: Botao Amber Hu <botao@holoi.com>
+// SPDX-FileCopyrightText: Copyright 2024 Reality Design Lab <dev@reality.design>
+// SPDX-FileContributor: Botao 'Amber' Hu <amber@reality.design>
 // SPDX-License-Identifier: MIT
 
 import XRFrame from './XRFrame';
 import XRReferenceSpace from './XRReferenceSpace';
 import XRRenderState from './XRRenderState';
 import XRWebGLLayer from './XRWebGLLayer';
-import XRInputSourceEvent from './XRInputSourceEvent';
+import XRInputSourceEvent, { XRInputSourceEventHandler } from './XRInputSourceEvent';
 import XRSessionEvent from './XRSessionEvent';
 import XRSpace from './XRSpace';
 import XRInputSourcesChangeEvent from './XRInputSourcesChangeEvent';
@@ -26,6 +26,7 @@ export enum XRSessionMode {
 export interface XRSessionInit {
   optionalFeatures?: Array<string>;
   requiredFeatures?: Array<string>;
+  domOverlayState?: XRDOMOverlayState;
 }
 
 /**
@@ -56,10 +57,6 @@ export enum XRVisibilityState {
 
 export type XRFrameRequestCallback = (time: DOMHighResTimeStamp, frame: XRFrame) => void;
 
-export interface XRSessionInit
-{
-  domOverlayState: XRDOMOverlayState;
-}
 
 // Nonstandard helper class. Not exposed by the API anywhere.
 class XRViewSpace extends XRSpace {
@@ -80,18 +77,36 @@ class XRViewSpace extends XRSpace {
   }
 }
 
+
+export interface XRSessionEventMap {
+  inputsourceschange: XRInputSourceChangeEvent;
+  end: XRSessionEvent;
+  visibilitychange: XRSessionEvent;
+  frameratechange: XRSessionEvent;
+  select: XRInputSourceEvent;
+  selectstart: XRInputSourceEvent;
+  selectend: XRInputSourceEvent;
+  squeeze: XRInputSourceEvent;
+  squeezestart: XRInputSourceEvent;
+  squeezeend: XRInputSourceEvent;
+  eyetrackingstart: XREyeTrackingSourceEvent;
+  eyetrackingend: XREyeTrackingSourceEvent;
+}
+
 export default class XRSession extends EventTarget {
 
-  onend?: EventListenerOrEventListenerObject = undefined;
-  oninputsourceschange?: EventListenerOrEventListenerObject = undefined;
-  onselect?: EventListenerOrEventListenerObject = undefined;
-  onselectstart?: EventListenerOrEventListenerObject = undefined;
-  onselectend?: EventListenerOrEventListenerObject = undefined;
-  onsqueeze?: EventListenerOrEventListenerObject = undefined;
-  onsqueezestart?: EventListenerOrEventListenerObject = undefined;
-  onsqueezeend?: EventListenerOrEventListenerObject = undefined;
-  onvisibilitychange?: EventListenerOrEventListenerObject = undefined;
-  onframeratechange?: EventListenerOrEventListenerObject = undefined;
+  onend: XRSessionEventHandler = undefined;
+  oninputsourceschange: XRInputSourceChangeEventHandler;
+
+  onselect: XRInputSourceEventHandler;
+  onselectstart: XRInputSourceEventHandler;
+  onselectend: XRInputSourceEventHandler;
+  onsqueeze: XRInputSourceEventHandler;
+  onsqueezestart: XRInputSourceEventHandler;
+  onsqueezeend: XRInputSourceEventHandler;
+
+  onvisibilitychange: EventListenerOrEventListenerObject = undefined;
+  onframeratechange: EventListenerOrEventListenerObject = undefined;
 
   #device: XRDevice;
   #immersive: boolean;

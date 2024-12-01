@@ -1,5 +1,5 @@
 {
-  "name": "holokit-webxr",
+  "name": "holoweb-webxr-polyfills",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,7 +10,7 @@
     "build-module": "cross-env NODE_ENV=production rollup -c rollup.config.module.js"
   },
   "keywords": [],
-  "author": "Holo Interactive",
+  "author": "Reality Design Lab",
   "license": "MIT",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.1.0",
@@ -19,6 +19,7 @@
     "@types/jest": "^29.5.4",
     "@types/webxr": "^0.5.4",
     "jest": "^29.6.4",
+    "jest-environment-jsdom": "^29.7.0",
     "prettier": "^2.2.1",
     "rollup": "^2.38.5",
     "ts-jest": "^29.1.1",

@@ -1,3 +1,8 @@
+
+/**
+ * @see https://www.w3.org/immersive-web/list_spec.html
+ */
+
 /**
  * https://immersive-web.github.io/webxr/#initialization
  */
@@ -105,6 +110,7 @@ export { XRRay, XRRayDirectionInit };
  */
 import XRAnchor, { XRAnchorSet } from './XRAnchor';
 export { XRAnchor, XRAnchorSet };
+
 /**
  * @see https://immersive-web.github.io/webxr-hand-input/#xrhand-interface
  * @see https://immersive-web.github.io/webxr-hand-input/#frame-loop
@@ -125,3 +131,8 @@ export { XRPlane, XRPlaneOrientation, XRPlaneSet };
  */
 import XRMesh, { XRMeshSet } from './XRMesh';
 export { XRMesh, XRMeshSet };
+
+/**
+ * @see https://github.com/immersive-web/semantic-labels
+ */
+

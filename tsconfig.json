@@ -1,9 +1,8 @@
 {
   "compilerOptions": {
-		"target": "ESNext",
-		"useDefineForClassFields": true,
-		"module": "ESNext",
-		"lib": ["DOM", "ESNext"],
+		"target": "ES2022",
+		"module": "ES2022",
+		"lib": ["DOM", "ES2022"],
     "typeRoots": ["./node_modules/@types"],
     "moduleResolution": "node",
     "resolveJsonModule": true,
@@ -13,8 +12,9 @@
     "outDir": "./dist",
     "noEmit": false,
     "rootDir": "./src",
-    "sourceMap": true,
+    "sourceMap": false,
     "strict": true,         
+    "useDefineForClassFields": false,
     "noImplicitAny": true,
     "noUnusedLocals": false,
     "skipLibCheck": true,

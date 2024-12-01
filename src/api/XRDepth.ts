@@ -1,7 +1,11 @@
-// SPDX-FileCopyrightText: Copyright 2023 Holo Interactive <dev@holoi.com>
-// SPDX-FileContributor: Botao Amber Hu <botao@holoi.com>
+// SPDX-FileCopyrightText: Copyright 2024 Reality Design Lab <dev@reality.design>
+// SPDX-FileContributor: Botao 'Amber' Hu <amber@reality.design>
 // SPDX-License-Identifier: MIT
 
+
+/**
+ * @see https://www.w3.org/TR/webxr-depth-sensing-1/
+ */
 export enum XRDepthUsage {
   "cpu-optimized" = "cpu-optimized",
   "gpu-optimized" = "gpu-optimized"
@@ -21,9 +25,14 @@ interface XRSessionInit {
   depthSensing?: XRDepthStateInit;
 }
 
-export class abstract XRDepthInformation {
-  readonly width: number;
-  readonly height: number;
+export class XRDepthInformation {
+  get width(): number {
+
+  }
+
+  get height(): number {
+
+  }
 
   get normDepthBufferFromNormView(): XRRigidTransform {
 
@@ -32,13 +41,14 @@ export class abstract XRDepthInformation {
   get rawValueToMeters(): number {
 
   }
+
 }
 
 export class XRCPUDepthInformation extends XRDepthInformation {
     data: ArrayBuffer;
 
     getDepthInMeters(x: number, y: number): number {
-      return 
+      return s;
     }
 }
 

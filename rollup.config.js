@@ -10,7 +10,7 @@ export default {
 		name: 'HoloKitWebXRPolyfill',
 	},
 	plugins: [
-        typescript(),
+    typescript(),
 		resolve(),
 		commonjs(),
 	],

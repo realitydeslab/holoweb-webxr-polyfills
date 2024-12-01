@@ -1,20 +1,33 @@
-// SPDX-FileCopyrightText: Copyright 2023 Holo Interactive <dev@holoi.com>
-// SPDX-FileContributor: Botao Amber Hu <botao@holoi.com>
+// SPDX-FileCopyrightText: Copyright 2024 Reality Design Lab <dev@reality.design>
+// SPDX-FileContributor: Botao 'Amber' Hu <amber@reality.design>
 // SPDX-License-Identifier: MIT
 
 import { XRReferenceSpaceType } from './XRReferenceSpace';
 import XRDevice from './XRDevice';
 import XRSession, { XRSessionMode, XRSessionInit } from './XRSession';
 
-interface XRSystemDeviceChangeEvent extends Event {
+
+/**
+ * ref: https://immersive-web.github.io/webxr/#navigator-xr-attribute
+ */
+export interface Navigator {
+  /**
+   * An XRSystem object is the entry point to the API, used to query for XR features
+   * available to the user agent and initiate communication with XR hardware via the
+   * creation of XRSessions.
+   */
+  xr?: XRSystem;
+}
+
+export interface XRSystemDeviceChangeEvent extends Event {
   type: 'devicechange';
 }
 
-interface XRSystemDeviceChangeEventHandler {
+export interface XRSystemDeviceChangeEventHandler {
   (event: XRSystemDeviceChangeEvent): any;
 }
 
-interface XRSystemEventMap {
+export interface XRSystemEventMap {
   devicechange: XRSystemDeviceChangeEvent;
 }
 
@@ -156,5 +169,5 @@ export default class XRSystem extends EventTarget {
     return session;
   }
 
-  ondevicechange: XRSystemDeviceChangeEventHandler | null = null;
+  ondevicechange: XRSystemDeviceChangeEventHandler | undefined;
 }

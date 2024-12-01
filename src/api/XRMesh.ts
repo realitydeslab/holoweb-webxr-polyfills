@@ -3,6 +3,7 @@ import XRSpace from './XRSpace';
 
 /**
  * @see https://immersive-web.github.io/real-world-meshing/
+ * @see https://github.com/immersive-web/semantic-labels/blob/master/labels.json
  */
 export default class XRMesh {
 	#meshSpace: XRSpace;
